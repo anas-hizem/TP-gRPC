@@ -18,3 +18,8 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
    ```bash
    pip install grpcio grpcio-tools
 ``
+2. **Node.js** :
+
+   ```bash
+npm install @grpc/grpc-js @grpc/proto-loader
+``
