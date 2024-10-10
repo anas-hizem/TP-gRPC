@@ -126,11 +126,10 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
     Cela enverra ensuite la requête au serveur et affichera la réponse sur Termux.
 
 ## Résultat :
-S
-
+1. Test en locale :
 ![test en local](https://github.com/user-attachments/assets/be9fc25f-7fc2-4aac-ac4b-02a70b57ba66)![test machine-phone2](https://github.com/user-attachments/assets/6b0649b9-53b4-4529-93cb-6250a79ec16a)
 
-
+2. Test entre machine et smartphone :
 ![test machine-phone1](https://github.com/user-attachments/assets/671dd03f-9521-440f-aea5-bc8dab5a3d41)
 
 ![test machine-phone2](https://github.com/user-attachments/assets/f727cd66-3f4b-4f38-a683-aed3d5babac9)
