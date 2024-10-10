@@ -1,3 +1,4 @@
+
 # Projet gRPC HelloWorld Multilingue
 
 ## Description :
@@ -17,42 +18,35 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 
 1. **Python** :
 
-``bash
+   ```bash
    pip install grpcio grpcio-tools
-``
+   ```
+
 2. **Node.js** :
 
-``bash
-    npm install @grpc/grpc-js @grpc/proto-loader
-``
+   ```bash
+   npm install @grpc/grpc-js @grpc/proto-loader
+   ```
 
 ## Installation :
 1. Clonez ce dépôt sur votre machine :
 
+   ```bash
+   git clone https://github.com/votre-dépôt/helloworld-grpc.git
+   cd helloworld-grpc
+   ```
 
-``bash
-git clone https://github.com/votre-dépôt/helloworld-grpc.git
-cd helloworld-grpc
-``
+2. **Compilateur Protobuf** : Compilez le fichier .proto pour générer les fichiers nécessaires :
 
+   ```bash
+   python -m grpc_tools.protoc -I . --python_out=. --grpc_python_out=. ./helloworld.proto
+   ```
 
-2. Compilateur Protobuf : Compilez le fichier .proto pour générer les fichiers nécessaires :
-
-``bash
-
-python -m grpc_tools.protoc -I . --python_out=. --grpc_python_out=. ./helloworld.proto
-
-``
-
-Pour Node.js, aucune compilation n'est nécessaire, car proto-loader s'en charge dynamiquement.
-
-
-
-
+   Pour Node.js, aucune compilation n'est nécessaire, car `proto-loader` s'en charge dynamiquement.
 
 ## Structure du projet :
 
-``bash
+```
 /helloworld-grpc
 │
 ├── client.js               # Client JavaScript
@@ -62,67 +56,47 @@ Pour Node.js, aucune compilation n'est nécessaire, car proto-loader s'en charge
 ├── helloworld_pb2_grpc.py   # Généré automatiquement par protoc (Python)
 ├── package.json             # Fichier Node.js (pour gérer les dépendances)
 └── README.md                # Documentation du projet
-
-
-``
-
+```
 
 ## Explication des fichiers :
 
-    helloworld.proto : Définit les services gRPC et les messages échangés. Il contient deux RPCs :
-        SayHello : envoie un message de salutation selon le nom et la langue choisis.
-        StreamGreetings : envoie des salutations en continu avec l'heure.
+- **helloworld.proto** : Définit les services gRPC et les messages échangés. Il contient deux RPCs :
+  - `SayHello` : envoie un message de salutation selon le nom et la langue choisis.
+  - `StreamGreetings` : envoie des salutations en continu avec l'heure.
 
-    server.py : Serveur gRPC en Python qui implémente les méthodes définies dans helloworld.proto. Il écoute sur le port 50051 pour recevoir des requêtes et envoyer des réponses.
+- **server.py** : Serveur gRPC en Python qui implémente les méthodes définies dans `helloworld.proto`. Il écoute sur le port `50051` pour recevoir des requêtes et envoyer des réponses.
 
-    client.js : Client gRPC en JavaScript qui interagit avec le serveur. Il prend les entrées de l'utilisateur (nom et langue) et envoie une requête au serveur, soit pour un message unique, soit pour un stream de messages.
+- **client.js** : Client gRPC en JavaScript qui interagit avec le serveur. Il prend les entrées de l'utilisateur (nom et langue) et envoie une requête au serveur, soit pour un message unique, soit pour un stream de messages.
 
-    helloworld_pb2.py et helloworld_pb2_grpc.py : Générés automatiquement par Protobuf, ces fichiers contiennent les classes pour interagir avec gRPC en Python.
-
+- **helloworld_pb2.py** et **helloworld_pb2_grpc.py** : Générés automatiquement par Protobuf, ces fichiers contiennent les classes pour interagir avec gRPC en Python.
 
 ## Exécution :
-1. Serveur (Python) :
+1. **Serveur (Python)** :
 
-Lancez le serveur sur votre machine :
+   Lancez le serveur sur votre machine :
 
-``bash
+   ```bash
+   python server.py
+   ```
 
-python server.py
+   Le serveur commencera à écouter sur le port `50051`.
 
-``
+2. **Client (JavaScript)** :
 
+   Lancez le client pour envoyer une requête de salutation :
 
-Le serveur commencera à écouter sur le port 50051.
+   ```bash
+   node client.js
+   ```
 
-2. Client (JavaScript) :
+   Le client vous demandera d'entrer :
+   - Votre nom
+   - Langue choisie (fr, en, ar)
+   - Type de message (1 pour un seul message, 2 pour un stream)
 
-Lancez le client pour envoyer une requête de salutation :
+   Le client enverra ensuite la requête au serveur et affichera la réponse.
 
-
-
-
-``bash
-
-node client.js
-
-
-``
-
-Le client vous demandera d'entrer :
-
-    Votre nom
-    Langue choisie (fr, en, ar)
-    Type de message (1 pour un seul message, 2 pour un stream)
-
-Le client enverra ensuite la requête au serveur et affichera la réponse.
-
-
-
-3. Tests sur plusieurs machines :
-
-### En locale :
-### Machine - Machine :
-### Machine - Smartphone :
-
-
-
+3. **Tests sur plusieurs machines** :
+   - **En local** : Vous pouvez tester l'application sur une seule machine en exécutant à la fois le serveur et le client.
+   - **Machine - Machine** : Assurez-vous que les deux machines sont sur le même réseau. Remplacez `localhost` par l'adresse IP de la machine serveur dans `client.js`.
+   - **Machine - Smartphone** : Utilisez Termux pour installer Node.js et exécutez le client comme indiqué ci-dessus.
