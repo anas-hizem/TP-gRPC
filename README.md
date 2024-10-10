@@ -100,28 +100,28 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
    - **En local** : Vous pouvez tester l'application sur une seule machine en exécutant à la fois le serveur et le client.
    - **Machine - Machine** : Assurez-vous que les deux machines sont sur le même réseau. Remplacez `localhost` par l'adresse IP de la machine serveur dans `client.js`.
    - **Machine - Smartphone** : Utilisez Termux pour installer Node.js et exécutez le client comme indiqué ci-dessus.
-  - Installez Termux depuis le Google Play Store.
-  - Ouvrez Termux et installez Node.js :
-    ```bash
-    pkg install nodejs
-    ```
-  - Clonez le dépôt et accédez au dossier client :
-    ```bash
-    git clone https://github.com/votre-dépôt/helloworld-grpc.git
-    cd helloworld-grpc/client
-    ```
-  - Copiez `client.js` et `helloworld.proto` dans le dossier Termux :
-    ```bash
-    cp ../client.js .
-    cp ../helloworld.proto .
-    ```
-  - Exécutez le client :
-    ```bash
-    node client.js
-    ```
-  - Le client vous demandera d'entrer :
-    - Votre nom
-    - Langue choisie (fr, en, ar)
-    - Type de message (1 pour un seul message, 2 pour un stream)
-
-Cela enverra ensuite la requête au serveur et affichera la réponse sur Termux.
+      - Installez Termux depuis le Google Play Store.
+      - Ouvrez Termux et installez Node.js :
+        ```bash
+        pkg install nodejs
+        ```
+      - Clonez le dépôt et accédez au dossier client :
+        ```bash
+        git clone https://github.com/votre-dépôt/helloworld-grpc.git
+        cd helloworld-grpc/client
+        ```
+      - Copiez `client.js` et `helloworld.proto` dans le dossier Termux :
+        ```bash
+        cp ../client.js .
+        cp ../helloworld.proto .
+        ```
+      - Exécutez le client :
+        ```bash
+        node client.js
+        ```
+      - Le client vous demandera d'entrer :
+        - Votre nom
+        - Langue choisie (fr, en, ar)
+        - Type de message (1 pour un seul message, 2 pour un stream)
+    
+    Cela enverra ensuite la requête au serveur et affichera la réponse sur Termux.
