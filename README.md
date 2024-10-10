@@ -105,15 +105,14 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
         ```bash
         pkg install nodejs
         ```
-      - Clonez le dépôt et accédez au dossier client :
+      - Créer et accédez au dossier client :
         ```bash
-        git clone https://github.com/votre-dépôt/helloworld-grpc.git
-        cd helloworld-grpc/client
+        mkdir client && cd client
         ```
       - Copiez `client.js` et `helloworld.proto` dans le dossier Termux :
         ```bash
-        cp ../client.js .
-        cp ../helloworld.proto .
+        nano client.js .
+        nano helloworld.proto .
         ```
       - Exécutez le client :
         ```bash
