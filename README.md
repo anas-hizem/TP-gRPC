@@ -8,13 +8,13 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 - Python 3.6+
 - Node.js (version 14+)
 - gRPC Python et JavaScript :
-    - Pour Python : grpcio et grpcio-tools
-    - Pour Node.js : @grpc/grpc-js et @grpc/proto-loader
+  - Pour Python : `grpcio` et `grpcio-tools`
+  - Pour Node.js : `@grpc/grpc-js` et `@grpc/proto-loader`
 - Termux (pour les tests sur smartphone)
-- Protoc compiler pour compiler le fichier .proto
+- Compilateur Protobuf pour compiler le fichier .proto
 
 ## Installation des dépendances :
-1. Python :
-``bash
-    pip install grpcio grpcio-tools
+1. **Python** :
+   ```bash
+   pip install grpcio grpcio-tools
 ``
